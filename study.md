@@ -39,7 +39,13 @@ including class. Why might Array redefine methods included from Enumerable?
 Please give reasons for the methods you list.
 
 ```md
-<!-- your answer here -->
+sort and ma
+
+Arrays use a 0-based index while enumerables do not. The map method for arrays
+uses the index while the map for enumerables use an object.
+
+The sort method appears to be identical for enumerables as it is for arrays
+
 ```
 
 ## Array#length versus Enumerable#count
@@ -48,7 +54,8 @@ Although both Array and Enumerable have a `count` method, Array also defines the
 method `length`.  Why is `length` sensibly defined on Array but not Enumerable?
 
 ```md
-<!-- your answer here -->
+Enumeables don't need to have a defined end, thus no defined length. An array
+has a defined length based on the data it contains.
 ```
 
 ## Compare Enumerable to Stream
@@ -59,5 +66,7 @@ like enumerables?  How are they different?  Please compare and contrast these
 types.
 
 ```md
-<!-- your answer here -->
+Streams (or IO in Ruby) include the Enumerable module so all of the enumerable
+methods can be used. They are different in that the data contained in the stream
+is not always readily available and may arrive over time. 
 ```
